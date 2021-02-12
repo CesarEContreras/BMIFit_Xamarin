@@ -8,11 +8,18 @@ namespace BMIFit.ViewModels
     public class CalculatorViewModel : BaseViewModel
     {  
         public Command CalculateBMICommand { get; set; }
-
+        
         public CalculatorViewModel()
         {
             Title = "Calculator";
             CalculateBMICommand = new Command(async () => await ExecuteCalculateCommand());
+        }
+
+        float bmi;
+        public float BMI
+        {
+            get { return bmi; }
+            set { SetProperty(ref bmi, value); }
         }
 
         string gender = string.Empty;
@@ -29,27 +36,27 @@ namespace BMIFit.ViewModels
             set { SetProperty(ref age, value); }
         }
 
-        int height;
-        public int Height
+        float height;
+        public float Height
         {
             get { return height; }
             set { SetProperty(ref height, value); }
         }
 
-        double weight;
-        public double Weight
+        float weight;
+        public float Weight
         {
             get { return weight; }
             set { SetProperty(ref weight, value); }
         }
 
-        async Task ExecuteCalculateCommand()
+        private async Task ExecuteCalculateCommand()
         {
             IsBusy = true;
 
             try
             {
-                
+                CalculateBMI();
             }
             catch (Exception ex)
             {
@@ -59,6 +66,14 @@ namespace BMIFit.ViewModels
             {
                 IsBusy = false;
             }
+        }
+
+        private void CalculateBMI()
+        {
+            float weightInKg = (float)(weight * 0.45359237);
+            float heightInMeters = height / 100;
+
+            BMI = weightInKg / (heightInMeters * heightInMeters);
         }
     }
 }
