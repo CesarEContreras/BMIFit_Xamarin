@@ -22,25 +22,18 @@ namespace BMIFit.ViewModels
             set { SetProperty(ref bmi, value); }
         }
 
-        string gender = string.Empty;
-        public string Gender
+        int feet;
+        public int Feet
         {
-            get { return gender; }
-            set { SetProperty(ref gender, value); }
+            get { return feet; }
+            set { SetProperty(ref feet, value); }
         }
 
-        int age;
-        public int Age
+        int inches;
+        public int Inches
         {
-            get { return age; }
-            set { SetProperty(ref age, value); }
-        }
-
-        float height;
-        public float Height
-        {
-            get { return height; }
-            set { SetProperty(ref height, value); }
+            get { return inches; }
+            set { SetProperty(ref inches, value); }
         }
 
         float weight;
@@ -56,7 +49,8 @@ namespace BMIFit.ViewModels
 
             try
             {
-                CalculateBMI();
+                var heightInches = (float)((feet * 12) + inches);
+                BMI = (703 * weight) / (heightInches * heightInches);
             }
             catch (Exception ex)
             {
@@ -66,14 +60,6 @@ namespace BMIFit.ViewModels
             {
                 IsBusy = false;
             }
-        }
-
-        private void CalculateBMI()
-        {
-            float weightInKg = (float)(weight * 0.45359237);
-            float heightInMeters = height / 100;
-
-            BMI = weightInKg / (heightInMeters * heightInMeters);
         }
     }
 }

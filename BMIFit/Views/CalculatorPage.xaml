@@ -36,19 +36,19 @@
             <FlexLayout Direction="Column">
                 <StackLayout Orientation="Horizontal">
                     <StackLayout HorizontalOptions="FillAndExpand">
-                        <Label Text="Gender"/>
-                        <Picker/>
+                        <Label Text="Feet"/>
+                        <Entry Text="{Binding Feet}" Keyboard="Numeric"/>
                     </StackLayout>
                     <StackLayout HorizontalOptions="FillAndExpand">
-                        <Label Text="Age"/>
-                        <Entry Text="{Binding Age}" Keyboard="Numeric"/>
+                        <Label Text="Inches"/>
+                        <Entry Text="{Binding Inches}" Keyboard="Numeric"/>
                     </StackLayout>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
-                    <StackLayout HorizontalOptions="FillAndExpand">
+                    <!--<StackLayout HorizontalOptions="FillAndExpand">
                         <Label Text="Height (cm)"/>
                         <Entry Text="{Binding Height}" Keyboard="Numeric"/>
-                    </StackLayout>
+                    </StackLayout>-->
                     <StackLayout HorizontalOptions="FillAndExpand">
                         <Label Text="Weight (pounds)"/>
                         <Entry Text="{Binding Weight}" Keyboard="Numeric"/>
