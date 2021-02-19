@@ -43,6 +43,13 @@ namespace BMIFit.ViewModels
             set { SetProperty(ref weight, value); }
         }
 
+        string bmiCategory;
+        public string BMICatergory
+        {
+            get { return bmiCategory; }
+            set { SetProperty(ref bmiCategory, value); }
+        }
+
         private async Task ExecuteCalculateCommand()
         {
             IsBusy = true;
@@ -61,5 +68,7 @@ namespace BMIFit.ViewModels
                 IsBusy = false;
             }
         }
+
+        // TODO: Finish logic to displaye which category the result is in.
     }
 }
