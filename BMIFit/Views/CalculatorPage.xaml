@@ -31,7 +31,7 @@
                             <FormattedString.Spans>
                                 <Span Text="Your BMI result is:" FontAttributes="Bold"/>
                                 <Span Text=" " />
-                                <Span Text="Normal" />
+                                <Span Text="{Binding BMICatergory}" />
                             </FormattedString.Spans>
                         </FormattedString>
                     </Label.FormattedText>

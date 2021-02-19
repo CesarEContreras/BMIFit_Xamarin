@@ -6,9 +6,9 @@ using Xamarin.Forms;
 namespace BMIFit.ViewModels
 {
     public class CalculatorViewModel : BaseViewModel
-    {  
+    {
         public Command CalculateBMICommand { get; set; }
-        
+
         public CalculatorViewModel()
         {
             Title = "Calculator";
@@ -58,6 +58,7 @@ namespace BMIFit.ViewModels
             {
                 var heightInches = (float)((feet * 12) + inches);
                 BMI = (703 * weight) / (heightInches * heightInches);
+                BMICatergory = GetBodyMassIndexCategory(BMI);
             }
             catch (Exception ex)
             {
@@ -69,6 +70,15 @@ namespace BMIFit.ViewModels
             }
         }
 
-        // TODO: Finish logic to displaye which category the result is in.
+        private string GetBodyMassIndexCategory(float bmi)
+        {
+            if (bmi <= 18.5)
+                return "Underweight";
+            else if (bmi >= 18.5 && bmi <= 24.9)
+                return "Normal";
+            else if (bmi >= 25 && bmi <= 29.9)
+                return "Overweight";
+            else return"Obese";
+        }
     }
 }
