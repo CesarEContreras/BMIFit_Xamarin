@@ -9,20 +9,20 @@
         <vm:CalculatorViewModel/>
     </ContentPage.BindingContext>
 
-    <!--<ContentPage.Content>
-    </ContentPage.Content>-->
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Primary">#c30017</Color>
+            <Color x:Key="Accent">#ff919e</Color>
+            <Color x:Key="LightTextColor">#999999</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-       <!-- <StackLayout Grid.Row="0" HeightRequest="220" BackgroundColor="Red">
-
-        </StackLayout>
-        <StackLayout Grid.Row="1" BackgroundColor="Blue">
-
-        </StackLayout>-->
-        <StackLayout Grid.Row="0" Padding="0,30,0,0" BackgroundColor="#c30017" VerticalOptions="FillAndExpand" HorizontalOptions="Fill" >
+        <StackLayout Grid.Row="0" Padding="0,30,0,0" BackgroundColor="{StaticResource Primary}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill" >
             <Label Text="BMI Calculator" FontSize="22" FontAttributes="Bold" TextColor="White" HorizontalTextAlignment="Center"/>
             <Label Text="{Binding BMI, StringFormat='{0:F2}'}" Padding="0,20,0,0" FontSize="50" FontAttributes="Bold" TextColor="White" HorizontalTextAlignment="Center" />
             <Label FontSize="22" Padding="0,0,0,30" TextColor="White" HorizontalTextAlignment="Center">
@@ -37,28 +37,28 @@
                     </Label.FormattedText>
                 </Label>
         </StackLayout>
-        
-            <StackLayout Padding="20,0,20,0" Grid.Row="1" Orientation="Vertical">
-                <StackLayout Orientation="Horizontal">
-                    <StackLayout HorizontalOptions="FillAndExpand">
-                        <Label Text="Feet"/>
-                        <Entry Text="{Binding Feet}" Keyboard="Numeric"/>
-                    </StackLayout>
-                    <StackLayout HorizontalOptions="FillAndExpand">
-                        <Label Text="Inches"/>
-                        <Entry Text="{Binding Inches}" Keyboard="Numeric"/>
-                    </StackLayout>
+        <StackLayout Padding="20,30,20,25" Grid.Row="1" Orientation="Vertical">
+            <StackLayout Orientation="Horizontal">
+                <StackLayout HorizontalOptions="FillAndExpand">
+                    <Label Text="Feet"/>
+                    <Entry Text="{Binding Feet}" Keyboard="Numeric"/>
                 </StackLayout>
-                <StackLayout Orientation="Horizontal">
-                    <StackLayout HorizontalOptions="FillAndExpand">
-                        <Label Text="Weight (pounds)"/>
-                        <Entry Text="{Binding Weight}" Keyboard="Numeric"/>
-                    </StackLayout>
-                </StackLayout>
-                <StackLayout VerticalOptions="EndAndExpand" >
-                    <Button Text="Calculate" Command="{Binding CalculateBMICommand}"/>
+                 <StackLayout HorizontalOptions="FillAndExpand">
+                    <Label Text="Inches"/>
+                    <Entry Text="{Binding Inches}" Keyboard="Numeric"/>
+                 </StackLayout>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <StackLayout HorizontalOptions="FillAndExpand">
+                    <Label Text="Weight (pounds)"/>
+                    <Entry Text="{Binding Weight}" Keyboard="Numeric"/>
                 </StackLayout>
             </StackLayout>
-        
+            <StackLayout VerticalOptions="EndAndExpand" >
+                <Button Text="Calculate" Command="{Binding CalculateBMICommand}"
+                        BackgroundColor="{StaticResource Primary}"
+                        TextColor="White"/>
+            </StackLayout>
+        </StackLayout>
     </Grid>
 </ContentPage>
