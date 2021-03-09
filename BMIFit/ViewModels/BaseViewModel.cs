@@ -5,15 +5,12 @@ using System.Runtime.CompilerServices;
 
 using Xamarin.Forms;
 
-using BMIFit.Models;
 using BMIFit.Services;
 
 namespace BMIFit.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
-
         bool isBusy = false;
         public bool IsBusy
         {

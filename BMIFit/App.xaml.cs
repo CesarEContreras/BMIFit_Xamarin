@@ -16,7 +16,6 @@ namespace BMIFit
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
             MainPage = new MainPage();
         }
 
