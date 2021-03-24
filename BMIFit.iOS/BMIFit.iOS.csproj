@@ -89,6 +89,10 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-87%402x.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-60%403x.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-60%402x.png" />
+    <ImageAsset Include="Assets.xcassets\SplashScreenImage.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\SplashScreenImage.imageset\appicon-512-1.png" />
+    <ImageAsset Include="Assets.xcassets\SplashScreenImage.imageset\appicon-512%402x.png" />
+    <ImageAsset Include="Assets.xcassets\SplashScreenImage.imageset\appicon-512%402x-1.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -115,5 +119,8 @@
       <Project>{8F7A8875-60DA-42A5-83FC-4055C0969BDC}</Project>
       <Name>BMIFit</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets.xcassets\SplashScreenImage.imageset\" />
   </ItemGroup>
 </Project>
