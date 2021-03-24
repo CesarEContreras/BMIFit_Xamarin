@@ -1,0 +1,4 @@
+﻿{
+  "appcenter-ios-token": "#{appcenter-ios-token}#",
+  "appcenter-android-token": "#{appcenter-android-token}#"
+}

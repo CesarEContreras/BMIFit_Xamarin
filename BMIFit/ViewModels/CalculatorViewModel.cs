@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using Microsoft.AppCenter.Analytics;
 using Xamarin.Forms;
 
 namespace BMIFit.ViewModels
@@ -12,7 +13,7 @@ namespace BMIFit.ViewModels
         public CalculatorViewModel()
         {
             Title = "Calculator";
-            CalculateBMICommand = new Command(async () => await ExecuteCalculateCommand());
+            CalculateBMICommand = new Command(() => ExecuteCalculateCommand());
         }
 
         float bmi;
@@ -50,7 +51,7 @@ namespace BMIFit.ViewModels
             set { SetProperty(ref bmiCategory, value); }
         }
 
-        private async Task ExecuteCalculateCommand()
+        private void ExecuteCalculateCommand()
         {
             IsBusy = true;
 
@@ -59,10 +60,12 @@ namespace BMIFit.ViewModels
                 var heightInches = (float)((feet * 12) + inches);
                 BMI = (703 * weight) / (heightInches * heightInches);
                 BMICatergory = GetBodyMassIndexCategory(BMI);
+                Analytics.TrackEvent($"BMI Calculated Successfully");
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(ex);
+                Analytics.TrackEvent(ex.Message);
             }
             finally
             {

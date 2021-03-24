@@ -6,6 +6,7 @@ using BMIFit.Views;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
+using BMIFit.Helpers;
 
 namespace BMIFit
 {
@@ -21,6 +22,9 @@ namespace BMIFit
 
         protected override void OnStart()
         {
+            AppCenter.Start($"android={Settings.Instance.AppCenterTokenAndroid};" +
+                  $"ios={Settings.Instance.AppCenterTokenIOS}",
+                  typeof(Analytics), typeof(Crashes));
         }
 
         protected override void OnSleep()
