@@ -1,4 +1,7 @@
 ﻿using System;
+using System.IO;
+using Newtonsoft.Json.Linq;
+
 namespace BMIFit.Helpers
 {
     public class Settings
@@ -19,12 +22,33 @@ namespace BMIFit.Helpers
 
         public string AppCenterTokenIOS
         {
-            get => string.Empty;
+            get
+            {
+                var token = GetSettingFile["appcenter-ios-token"].ToString();
+                return ValidateToken(token, "#{appcenter-ios-token}#") ? string.Empty : token;
+            }
         }
 
         public string AppCenterTokenAndroid
         {
-            get => string.Empty;
+            get
+            {
+                var token = GetSettingFile["appcenter-android-token"].ToString();
+                return ValidateToken(token, "#{appcenter-android-token}#") ? string.Empty : token;
+            }
+        }
+
+        private JObject GetSettingFile
+        {
+            get
+            {
+                return JObject.Parse(File.ReadAllText(@"settings.json"));
+            }
+        }
+
+        private bool ValidateToken(string token, string validator)
+        {
+            return token == validator || string.IsNullOrEmpty(token);
         }
     }
 }
